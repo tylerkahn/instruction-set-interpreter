@@ -1,9 +1,38 @@
 
-MOV 66 r0
-JMP #dec
-DSP r0
+MOV 4 &r0
+MOV 0 &r1
+CALL #mul
+
+PRINT r2
+
+MOV 4 &r0
+MOV 1 &r1
+CALL #sub
+
+PRINT r2
+
 EXIT
 
-.dec
-ADD 0xFFFF r0 &r0
-RET
+.dec ; decrements value in r0
+    ADD 0xFFFF r0 &r0
+    RET
+
+.sub ; subtract r0 by r1 and store it in r2 (r2 = r0 - r1)
+    NOT r1 &r1
+    ADD r1 0x1 &r1
+    ADD r0 r1 &r2
+    RET
+
+.mul  ; multiply r0 by r1 and store it in r2
+    AND r2 0x0 &r2  ; zero out r3
+    JZ r0 #_mul_1
+    ._mul_0
+    ADD r1 r2 &r2
+    CALL #dec
+    JNE r0 0x0 #_mul_0
+    ._mul_1
+    RET
+
+
+
+
