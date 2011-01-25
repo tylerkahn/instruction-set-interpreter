@@ -23,8 +23,6 @@ def dsp(v1):
     
 def print_(v1):
     print "0x" + hex(v1)[2:].upper()
-    
-
 
 ''' Interpreter '''
 
@@ -43,7 +41,7 @@ def handle_argument(s):
         sys.exit(-1)
 
 def handle_instruction(s):
-    if s in ["not", "or", "and", "print"]: # python keywords
+    if s in ["not", "or", "and", "print"]: # these are python keywords
         return s + "_"
     else:
         return s
