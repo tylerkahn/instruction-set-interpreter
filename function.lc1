@@ -1,0 +1,9 @@
+
+MOV 66 r0
+JMP #dec
+DSP r0
+EXIT
+
+.dec
+ADD 0xFFFF r0 &r0
+RET
