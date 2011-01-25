@@ -1,3 +1,0 @@
-NOT 4 &r0       ; ~4 = -5
-ADD 3 r0 &r0    ; 3 + (-5) = -2
-PRINT r0        ; 0xfffe (a.k.a. -2)
