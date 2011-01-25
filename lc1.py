@@ -54,6 +54,7 @@ def handle_instruction(s):
 with open(sys.argv[1], 'r') as f:
     code = f.readlines()
     code = map(lambda x: x.split(';')[0].strip().lower(), code) # remove comments and extraneous whitespace
+    code = filter(lambda x: x != '', code) #remove blank lines
 
 while code:
     line = code.pop(0).split() # [Instruction, arg1, arg2, ...]
