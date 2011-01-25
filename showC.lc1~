@@ -1,0 +1,4 @@
+MOV 65 &r1      ; set r1 to 65
+ADD r1 0x2 &r0  ; add the value in r1 to 2 and store the result in r0
+DSP r0          ; display the value in r0 (ascii)
+DSP 65
