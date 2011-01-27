@@ -8,8 +8,8 @@ def deref_argument(s):
         return 0xFFFF & int(s)
     elif s[:2] == "0x":
         return 0xFFFF & int(s, 16)
-    elif s[0] == '$':
-        return 0xFFFF & register[int(s[2])]
+    elif s[0] == 'r':
+        return 0xFFFF & register[int(s[1])]
     else:
         print s, "not handled"
         sys.exit(-1)
@@ -17,7 +17,7 @@ def deref_argument(s):
 
 def deref_all_but_last(func):
     def wrapper(*args, **kwargs):
-        last_arg = int(args[-1][2])
+        last_arg = int(args[-1][1])
         args = map(deref_argument, args[0:-1]) + [last_arg]
         return func(*args, **kwargs)
     return wrapper
