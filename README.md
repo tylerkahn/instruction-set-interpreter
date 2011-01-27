@@ -1,3 +1,4 @@
+What is this?
 =============
 
 An interpreter of a very simple instruction set I made up. Instructions are run on a virtual machine that exists within the Python runtime.
